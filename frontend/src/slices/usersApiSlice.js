@@ -1,5 +1,10 @@
+/* eslint-disable no-undef */
 import { apiSlice } from "./apiSlice";
-const USERS_URL = "/api/users";
+
+const BASE_URL = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:5000';
+
+const USERS_URL = `${BASE_URL}/api/users`;
+
 
 export const usersApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
