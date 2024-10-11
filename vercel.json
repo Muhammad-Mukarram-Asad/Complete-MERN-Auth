@@ -11,15 +11,20 @@
         "config": {"distDir": "frontend/dist"}  
       }
     ],
-    "routes": [
-      {
-        "src": "/api/(.*)",   
-        "dest": "/backend/server.js"
-      },
-      {
-        "src": "/(.*)",       
-        "dest": "/frontend/$1"
-      }
-    ]
+   "routes": [
+  {
+    "src": "/api/users/(.*)",
+    "dest": "/backend/server.js"
+  },
+  {
+    "src": "/api/(.*)",
+    "dest": "/backend/server.js"
+  },
+  {
+    "src": "/(.*)",
+    "dest": "/frontend/$1"
+  }
+]
+
   }
   
