@@ -4,7 +4,8 @@ import userRoutes from "./routes/userRoutes.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 import connecToDB from "./config/db.js";
 import cookieParser from "cookie-parser";
-import path from "express";
+import path from "path";
+import cors from 'cors';
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ const app = express();
 
 connecToDB();
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
