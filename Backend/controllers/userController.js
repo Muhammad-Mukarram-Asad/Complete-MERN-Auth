@@ -29,6 +29,7 @@ const authUser = asyncHandler(async (req, res) => {
 //  access  Public
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
+  console.log('Register endpoint hit', name, email, password);
   const userExists = await User.findOne({ email });
   if (userExists) {
     res.status(400).json({ message: "User already exists" });
