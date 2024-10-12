@@ -19,6 +19,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use("/api/users", (req, res, next) => {
+  console.log("API route accessed: " + req.url);
+  next();
+});
 app.use("/api/users", userRoutes);
 
 if(process.env.NODE_ENV === "production"){
