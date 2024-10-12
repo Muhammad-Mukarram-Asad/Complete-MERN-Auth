@@ -16,10 +16,6 @@
     "src": "/api/(.*)",
     "dest": "/Backend/server.js"
   },
-         {
-    "src": "/api/users/(.*)",
-    "dest": "/Backend/server.js"
-  },
   {
     "src": "/(.*)",
     "dest": "/frontend/$1"
