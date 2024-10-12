@@ -4,12 +4,12 @@
   "description": "Mern Authentication with react and redux toolkit",
   "main": "server.js",
   "type": "module",
-  "scripts": {
-    "start": "node backend/server.js",
-    "server": "nodemon backend/server.js",
-    "client": "npm run dev --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
-  },
+ "scripts": {
+  "start": "node Backend/server.js",
+  "server": "nodemon Backend/server.js",
+  "client": "npm run dev --prefix frontend",
+  "dev": "concurrently \"npm run server\" \"npm run client\""
+ },
   "author": "Mukarram Asad",
   "license": "ISC",
   "dependencies": {
