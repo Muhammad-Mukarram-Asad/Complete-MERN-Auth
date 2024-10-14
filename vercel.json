@@ -11,11 +11,6 @@
       "config": {
         "distDir": "frontend/dist"
       }
-    },
-    {
-      "outputDirectory": "frontend/dist",
-      "src": "frontend/dist/index.html",
-      "use": "@vercel/static-build"
     }
   ],
   "routes": [
