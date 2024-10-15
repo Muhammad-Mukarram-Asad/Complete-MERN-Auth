@@ -30,9 +30,11 @@ Unwraps a mutation call to provide the raw response/error.
 @remarks — If you need to access the error or success payload immediately after a mutation, you can chain .unwrap().
 */
     try {
-      const res = await login({ email, password }).unwrap();
-      dispatch(setCredentials({ ...res }));
-      console.log("Login Success", res);
+      const res = await login({email, password }).unwrap();
+      let name = res.userData.name;
+      const userData = { name,email };
+      dispatch(setCredentials(userData));
+      toast.success("Login Success");
       navigate("/");
     } catch (err) {
       toast.error(err?.data?.message || err.error);

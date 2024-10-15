@@ -11,10 +11,12 @@ import { logout } from '../slices/authSlice';
 
 const Header = () => {
     const { userInfo } = useSelector((state) => state.auth);
+    console.log("userInfo", userInfo);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    // You can write any name in square brackets for calling the function
     const [logoutApiCall] = useLogoutMutation();
 
     const logoutHandler = async () => {

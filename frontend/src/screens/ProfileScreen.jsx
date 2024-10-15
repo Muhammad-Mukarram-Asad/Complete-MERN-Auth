@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-// import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import FormContainer from '../components/FormContainer';
@@ -15,6 +15,7 @@ const ProfileScreen = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { userInfo } = useSelector((state) => state.auth);
 
@@ -37,9 +38,12 @@ const ProfileScreen = () => {
           email,
           password,
         }).unwrap();
-        console.log(res);
-        dispatch(setCredentials({...res}));
+
+        console.log("Profile updated successfully", res);
+        dispatch(setCredentials({name, email}));
         toast.success('Profile updated successfully');
+        navigate("/")
+
       } catch (err) {
         toast.error(err?.data?.message || err.error);
       }
@@ -72,7 +76,7 @@ const ProfileScreen = () => {
           <Form.Label>Password</Form.Label>
           <Form.Control
             type='password'
-            placeholder='Enter password'
+            placeholder='Enter New password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
@@ -82,7 +86,7 @@ const ProfileScreen = () => {
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
             type='password'
-            placeholder='Confirm password'
+            placeholder='Confirm New password'
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></Form.Control>

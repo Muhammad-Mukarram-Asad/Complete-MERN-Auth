@@ -19,14 +19,6 @@ const RegisterScreen = () => {
   const dispatch = useDispatch();
   const [register, { isLoading }] = useRegisterMutation();
 
-  useEffect (() => {
-    if (isLoading) {
-      toast.loading("Loading...");
-    } else {
-      toast.dismiss();
-    }
-  }, [isLoading])
-
   const submitHandler = async (e) => {
     e.preventDefault();
 
