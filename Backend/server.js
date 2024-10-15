@@ -15,7 +15,14 @@ const app = express();
 
 connecToDB();
 
-app.use(cors());
+// Configure CORS to allow requests from your frontend URL
+const allowedOrigins = ['https://complete-mern-auth-omega.vercel.app'];
+
+app.use(cors({
+  origin: allowedOrigins, // Allow your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'], // Specify the allowed HTTP methods
+  credentials: true, // Enable if you need to send cookies or HTTP authentication
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
